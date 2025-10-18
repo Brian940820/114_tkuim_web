@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 30px;
+}
+
+h1 {
+  color: #005b96;
+  font-size: 3em;
+  text-align: center;
+  border-bottom: 2px solid #005b96;
+  padding-bottom: 10px;
+}
+
+h2 {
+  color: #007acc;
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+h3 {
+  color: #336666;
+}
+
+p {
+  color: #444;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+a {
+  color: #007acc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  width: 40%;
+  background-color: #ffffff;
+  border: 2px solid #007acc;
+  margin-top: 15px;
+}
+
+th {
+  background-color: #a8edea;
+  color: #003366;
+}
+
+th, td {
+  border: 1px solid #99b3cc;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #e6f0ff;
+}
+
+ol {
+  background-color: #f9fcff;
+  padding: 10px;
+  border-radius: 8px;
+  list-style: none;
+}
+
+ol li::before {
+  content: "★ ";
+  color: #ff9933;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+#myCat {
+  border: 3px solid #999;
+  border-radius: 10px;
+}
+
+.highlight {
+  color: #cc3300;
+  font-weight: bold;
+}
