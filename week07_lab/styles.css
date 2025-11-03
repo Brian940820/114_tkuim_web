@@ -1,0 +1,58 @@
+/* styles.css - 簡單客製化樣式 */
+
+/* 錯誤訊息樣式 */
+.error {
+  color: #d9534f;
+  margin: 0.25rem 0 0;
+}
+
+/* interest button 樣式 */
+label.interest {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  user-select: none;
+}
+label.interest.active {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+/* password strength bar */
+.strength-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 200ms ease;
+}
+
+/* 狀態顏色：弱/中/強 */
+.strength-fill.weak {
+  background: #dc3545; /* red */
+}
+.strength-fill.medium {
+  background: #ffc107; /* yellow/orange */
+}
+.strength-fill.strong {
+  background: #198754; /* green */
+}
+
+/* spinner 與按鈕文字排列 */
+#submitBtn .btn-text {
+  margin-left: 0.5rem;
+}
+
+/* small responsive tweak */
+@media (max-width: 480px) {
+  label.interest {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
