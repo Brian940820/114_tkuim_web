@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="認識淡江大學 - 校史、願景、校訓、發展特色">
+  <title>認識本校 | 淡江大學</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #D91E1F 0%, #ff4444 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+    }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-box {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .section-box h2 {
+      color: #D91E1F;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #FDB913;
+      padding-bottom: 10px;
+    }
+
+    .section-box p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .section-box li {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .vision-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .vision-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+
+    .vision-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .vision-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .vision-card p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: #D91E1F;
+      font-size: 18px;
+    }
+
+    .timeline-content p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .feature-item {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 8px;
+      border-left: 4px solid #D91E1F;
+      transition: all 0.3s;
+    }
+
+    .feature-item:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item h4 {
+      color: #D91E1F;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .feature-item p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .slogan-box {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .slogan-box h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .slogan-box p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .stat-card {
+      background: white;
+      border: 2px solid #D91E1F;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #D91E1F;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="header-top-left">
+        <div class="logo-container">
+          <div class="logo-img">淡</div>
+          <div class="school-name">淡江大學</div>
+        </div>
+      </div>
+      <div class="header-top-right">
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="../index.html#admission">招生資訊</a>
+        </li>
+        <li class="nav-item">
+          <a href="scholarship.html">獎助學金</a>
+        </li>
+        <li class="nav-item">
+          <a href="department.html">學術單位</a>
+        </li>
+        <li class="nav-item">
+          <a href="office.html">行政單位</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html">認識本校</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 頁面標題 -->
+  <section class="page-header">
+    <h1>認識本校</h1>
+    <div class="breadcrumb">
+      <a href="../index.html">首頁</a>
+      <span>/</span>
+      <span>認識本校</span>
+    </div>
+  </section>
+
+  <!-- 主要內容 -->
+  <div class="content-wrapper">
+    <!-- 校訓與願景 -->
+    <div class="section-box">
+      <h2>🎓 校訓與願景</h2>
+      <div class="slogan-box">
+        <h3>校訓：真理、自由、利他</h3>
+        <p>本校秉持追求真理、自由發展、服務社會的理念，培育具備全球視野與社會責任的優秀人才。</p>
+      </div>
+
+      <div class="vision-grid">
+        <div class="vision-card">
+          <div class="vision-icon">🌍</div>
+          <h3>國際化</h3>
+          <p>與全球100多所頂尖大學建立交流合作，提供學生國際學習機會。</p>
+        </div>
+        <div class="vision-card">
+          <div class="vision-icon">💡</div>
+          <h3>創新化</h3>
+          <p>推動跨領域研究與產學合作，激發師生創意與創業精神。</p>
+        </div>
+        <div class="vision-card">
+          <div class="vision-icon">🌱</div>
+          <h3>永續化</h3>
+          <p>致力於環境保護與社會責任，實踐聯合國永續發展目標。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 校史 -->
+    <div class="section-box">
+      <h2>📜 校史發展</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1950年</div>
+          <div class="timeline-content">
+            <p><strong>淡江英文專科學校創立</strong><br>校長馬紹爾牧師創辦，初期僅設英文一科。</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1958年</div>
+          <div class="timeline-content">
+            <p><strong>改設淡江文理學院</strong><br>增設文、理、商三學院，招收大學部學生。</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1961年</div>
+          <div class="timeline-content">
+            <p><strong>改制為淡江大學</strong><br>成為完全大學，設立研究所。</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">1980年代</div>
+          <div class="timeline-content">
+            <p><strong>快速成長時期</strong><br>校舍擴充、系所增設、國際合作拓展。</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2000年代</div>
+          <div class="timeline-content">
+            <p><strong>邁向國際化</strong><br>提升研究水準、加強國際交流與產學合作。</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024年</div>
+          <div class="timeline-content">
+            <p><strong>朝向未來發展</strong><br>推行AI與永續發展計畫，建構新型態校園。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 校園統計 -->
+    <div class="section-box">
+      <h2>📊 校園統計</h2>
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">校區</div>
+          <div style="font-size: 12px; color: #999; margin-top: 8px;">淡水、臺北、蘭陽</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">學院</div>
+          <div style="font-size: 12px; color: #999; margin-top: 8px;">理工文商四院</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">系所</div>
+          <div style="font-size: 12px; color: #999; margin-top: 8px;">包含進修與研究所</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20,000+</div>
+          <div class="stat-label">全校師生</div>
+          <div style="font-size: 12px; color: #999; margin-top: 8px;">約2萬名學生</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 學校特色 -->
+    <div class="section-box">
+      <h2>⭐ 學校特色</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <h4>🏆 卓越教學</h4>
+          <p>國家教學卓越獎常客，致力於提升教學品質與學習成效。</p>
+        </div>
+        <div class="feature-item">
+          <h4>🔬 研究能量</h4>
+          <p>國科會研究計畫數多年蟬聯全國私立大學前茅。</p>
+        </div>
+        <div class="feature-item">
+          <h4>🌐 國際交流</h4>
+          <p>與全球100多所大學建立姐妹校，學生交換機會豐富。</p>
+        </div>
+        <div class="feature-item">
+          <h4>💼 產學合作</h4>
+          <p>與企業深度合作，提供實習與就業機會。</p>
+        </div>
+        <div class="feature-item">
+          <h4>🎓 跨領域學習</h4>
+          <p>鼓勵跨系修課與雙主修，培養T型人才。</p>
+        </div>
+        <div class="feature-item">
+          <h4>🏘️ 溫暖校園</h4>
+          <p>完善學生輔導系統，創造友善學習環境。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 校園設施 -->
+    <div class="section-box">
+      <h2>🏛️ 主要校園設施</h2>
+      <ul>
+        <li><strong>教學樓：</strong>配備現代化教室、語言教室、電腦實驗室等。</li>
+        <li><strong>圖書館：</strong>藏書超過100萬冊，提供24小時開放自修室。</li>
+        <li><strong>運動設施：</strong>田徑場、游泳池、籃球場、羽球場等完善運動中心。</li>
+        <li><strong>學生宿舍：</strong>男女生宿舍共約2,000床，提供優良住宿環境。</li>
+        <li><strong>研究中心：</strong>AI研究中心、永續發展中心、國際交流中心等。</li>
+        <li><strong>學生餐廳：</strong>多間餐廳與咖啡廳，提供多元美食選擇。</li>
+        <li><strong>健康中心：</strong>24小時醫療服務與心理諮商輔導。</li>
+      </ul>
+    </div>
+
+    <!-- 榮譽成就 -->
+    <div class="section-box">
+      <h2>🏅 近年榮譽</h2>
+      <ul>
+        <li>2024年：國家教學卓越獎 - 連續10年獲獎</li>
+        <li>2024年：世界大學排名 - 私立大學前10名</li>
+        <li>2023年：國科會優秀研究計畫補助 - 50多件</li>
+        <li>2023年：QS亞洲大學排名 - 進入前300名</li>
+        <li>2022年：永續發展卓越貢獻獎</li>
+        <li>2022年：國際認證通過 - AACSB、ACBSP等</li>
+      </ul>
+    </div>
+
+    <!-- 聯絡資訊 -->
+    <div class="section-box" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+      <h2>📞 校務聯絡</h2>
+      <p><strong>學校總機：</strong>(02) 2621-5656</p>
+      <p><strong>校址：</strong>新北市淡水區英專路151號</p>
+      <p><strong>電子郵件：</strong>info@mail.tku.edu.tw</p>
+      <p><strong>官方網站：</strong>www.tku.edu.tw</p>
+      <p><strong>服務時間：</strong>週一至週五 09:00-17:00</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>🏫 學校地址</h3>
+          <p>新北市淡水區英專路151號<br>Tel: (02) 2621-5656</p>
+        </div>
+        <div class="footer-section">
+          <h3>📧 聯絡我們</h3>
+          <p>Email: info@mail.tku.edu.tw<br>服務時間：週一至週五 09:00-17:00</p>
+        </div>
+        <div class="footer-section">
+          <h3>🔗 關注我們</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com" title="Facebook" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" title="Instagram" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" title="YouTube" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 淡江大學版權所有 | Tamkang University. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button id="scrollTopBtn" title="回到頂端">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

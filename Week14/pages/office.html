@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="淡江大學行政單位 - 各處室聯絡資訊與服務內容">
+  <title>行政單位 | 淡江大學</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #D91E1F 0%, #ff4444 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+    }
+
+    .content-wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .office-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .office-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .office-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .office-header {
+      background: linear-gradient(135deg, #D91E1F 0%, #ff6666 100%);
+      color: white;
+      padding: 25px;
+    }
+
+    .office-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .office-header h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .office-header .office-name-en {
+      font-size: 12px;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    .office-body {
+      padding: 20px;
+    }
+
+    .office-service {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .office-service:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .service-title {
+      font-weight: bold;
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .contact-info {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      color: #D91E1F;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #D91E1F;
+    }
+
+    .org-chart {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .chart-level {
+      margin-bottom: 30px;
+    }
+
+    .chart-title {
+      font-weight: bold;
+      color: #D91E1F;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .quick-link-btn {
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .quick-link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .map-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .map-placeholder {
+      background: #e0e0e0;
+      padding: 40px;
+      border-radius: 8px;
+      color: #999;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="header-top-left">
+        <div class="logo-container">
+          <div class="logo-img">淡</div>
+          <div class="school-name">淡江大學</div>
+        </div>
+      </div>
+      <div class="header-top-right">
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="../index.html#admission">招生資訊</a>
+        </li>
+        <li class="nav-item">
+          <a href="scholarship.html">獎助學金</a>
+        </li>
+        <li class="nav-item">
+          <a href="department.html">學術單位</a>
+        </li>
+        <li class="nav-item">
+          <a href="office.html">行政單位</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html">認識本校</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 頁面標題 -->
+  <section class="page-header">
+    <h1>行政單位</h1>
+    <div class="breadcrumb">
+      <a href="../index.html">首頁</a>
+      <span>/</span>
+      <span>行政單位</span>
+    </div>
+  </section>
+
+  <!-- 主要內容 -->
+  <div class="content-wrapper">
+    <!-- 快速連結 -->
+    <div class="section-title">
+      <h2>常用服務</h2>
+    </div>
+
+    <div class="quick-links">
+      <button class="quick-link-btn" onclick="scrollToSection('academic')">教務處</button>
+      <button class="quick-link-btn" onclick="scrollToSection('student')">學生事務處</button>
+      <button class="quick-link-btn" onclick="scrollToSection('research')">研究發展處</button>
+      <button class="quick-link-btn" onclick="scrollToSection('general')">總務處</button>
+      <button class="quick-link-btn" onclick="scrollToSection('finance')">財務處</button>
+      <button class="quick-link-btn" onclick="scrollToSection('hr')">人事室</button>
+    </div>
+
+    <!-- 行政單位卡片 -->
+    <div style="margin-top: 50px;">
+      <div class="office-grid" id="academic">
+        <!-- 教務處 -->
+        <div class="office-card">
+          <div class="office-header">
+            <div class="office-icon">📚</div>
+            <h3>教務處</h3>
+            <div class="office-name-en">Registrar's Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">教務管理、課程安排、考試管理、成績紀錄</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">成績查詢、課程選課、修課證明</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2301<br>
+              📧 <a href="mailto:academic@mail.tku.edu.tw">academic@mail.tku.edu.tw</a><br>
+              📍 教務處 - 2樓
+            </div>
+          </div>
+        </div>
+
+        <!-- 學生事務處 -->
+        <div class="office-card" id="student">
+          <div class="office-header">
+            <div class="office-icon">👥</div>
+            <h3>學生事務處</h3>
+            <div class="office-name-en">Student Affairs Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">課外活動、學生輔導、宿舍管理、獎懲</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">社團申請、宿舍登記、學生貸款</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2401<br>
+              📧 <a href="mailto:students@mail.tku.edu.tw">students@mail.tku.edu.tw</a><br>
+              📍 學生中心 - 1樓
+            </div>
+          </div>
+        </div>
+
+        <!-- 研究發展處 -->
+        <div class="office-card" id="research">
+          <div class="office-header">
+            <div class="office-icon">🔬</div>
+            <h3>研究發展處</h3>
+            <div class="office-name-en">Research & Development Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">研究計畫、產學合作、國際交流、專利申請</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">計畫申報、交換生申請、研究補助</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2501<br>
+              📧 <a href="mailto:research@mail.tku.edu.tw">research@mail.tku.edu.tw</a><br>
+              📍 研發大樓 - 3樓
+            </div>
+          </div>
+        </div>
+
+        <!-- 總務處 -->
+        <div class="office-card" id="general">
+          <div class="office-header">
+            <div class="office-icon">🏢</div>
+            <h3>總務處</h3>
+            <div class="office-name-en">General Affairs Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">校園維護、採購管理、車輛管理、安全保衛</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">停車申請、場地借用、維修申報</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2601<br>
+              📧 <a href="mailto:general@mail.tku.edu.tw">general@mail.tku.edu.tw</a><br>
+              📍 總務處 - 1樓
+            </div>
+          </div>
+        </div>
+
+        <!-- 財務處 -->
+        <div class="office-card" id="finance">
+          <div class="office-header">
+            <div class="office-icon">💰</div>
+            <h3>財務處</h3>
+            <div class="office-name-en">Finance Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">預算管理、薪資發放、收費管理、稅務申報</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">薪資查詢、發票申請、繳費查詢</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2701<br>
+              📧 <a href="mailto:finance@mail.tku.edu.tw">finance@mail.tku.edu.tw</a><br>
+              📍 財務處 - 3樓
+            </div>
+          </div>
+        </div>
+
+        <!-- 人事室 -->
+        <div class="office-card" id="hr">
+          <div class="office-header">
+            <div class="office-icon">👔</div>
+            <h3>人事室</h3>
+            <div class="office-name-en">Personnel Office</div>
+          </div>
+          <div class="office-body">
+            <div class="office-service">
+              <div class="service-title">主要職掌</div>
+              <div class="service-desc">聘僱管理、福利待遇、考核評鑑、教職員管理</div>
+            </div>
+            <div class="office-service">
+              <div class="service-title">快速服務</div>
+              <div class="service-desc">聘僱查詢、證明申請、福利說明</div>
+            </div>
+            <div class="contact-info">
+              📞 (02) 2621-5656 ext. 2801<br>
+              📧 <a href="mailto:personnel@mail.tku.edu.tw">personnel@mail.tku.edu.tw</a><br>
+              📍 行政大樓 - 2樓
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 組織架構 -->
+    <div class="section-title" style="margin-top: 80px;">
+      <h2>組織架構</h2>
+    </div>
+
+    <div class="org-chart">
+      <div class="chart-level">
+        <div class="chart-title">董事會</div>
+      </div>
+      <div style="border-top: 2px solid #D91E1F; margin: 20px 0;"></div>
+      <div class="chart-level">
+        <div class="chart-title">校長室</div>
+      </div>
+      <div style="border-top: 2px solid #D91E1F; margin: 20px 0;"></div>
+      <div class="chart-level">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div class="chart-title">教務副校長</div>
+          <div class="chart-title">研究副校長</div>
+          <div class="chart-title">國際副校長</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 校園地圖 -->
+    <div class="map-section">
+      <div class="section-title">
+        <h2>校園地點</h2>
+      </div>
+      <div class="map-placeholder">
+        🗺️ 校園互動地圖將在此顯示<br>
+        <small>包含各行政單位位置、教室分佈、停車場等資訊</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>🏫 學校地址</h3>
+          <p>新北市淡水區英專路151號<br>Tel: (02) 2621-5656</p>
+        </div>
+        <div class="footer-section">
+          <h3>📧 聯絡我們</h3>
+          <p>Email: info@mail.tku.edu.tw<br>服務時間：週一至週五 09:00-17:00</p>
+        </div>
+        <div class="footer-section">
+          <h3>🔗 關注我們</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com" title="Facebook" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" title="Instagram" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" title="YouTube" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 淡江大學版權所有 | Tamkang University. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button id="scrollTopBtn" title="回到頂端">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="淡江大學 - 提供優質高等教育與研究環境">
+  <title>淡江大學 | 官方網站</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- ========================================
+       Header / Navbar
+       ======================================== -->
+  <header>
+    <!-- 上方功能列（紅色區塊） -->
+    <div class="header-top">
+      <div class="header-top-left">
+        <div class="logo-container">
+          <div class="logo-img">淡</div>
+          <div class="school-name">淡江大學</div>
+        </div>
+      </div>
+      <div class="header-top-right">
+      </div>
+    </div>
+
+    <!-- 主選單（白色導覽列） -->
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#admission">招生資訊</a>
+          <ul class="dropdown-menu">
+            <li><a href="pages/admission.html">寒假轉學生</a></li>
+            <li><a href="pages/admission.html">新住民入學</a></li>
+            <li><a href="pages/admission.html">四年制日間部</a></li>
+            <li><a href="pages/admission.html">二年制進修部</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="pages/scholarship.html">獎助學金</a>
+        </li>
+        <li class="nav-item">
+          <a href="pages/department.html">學術單位</a>
+          <ul class="dropdown-menu">
+            <li><a href="pages/department.html">理學院</a></li>
+            <li><a href="pages/department.html">工學院</a></li>
+            <li><a href="pages/department.html">文學院</a></li>
+            <li><a href="pages/department.html">商學院</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="pages/office.html">行政單位</a>
+          <ul class="dropdown-menu">
+            <li><a href="pages/office.html">教務處</a></li>
+            <li><a href="pages/office.html">學生事務處</a></li>
+            <li><a href="pages/office.html">研究發展處</a></li>
+            <li><a href="pages/office.html">總務處</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="pages/about.html">認識本校</a>
+        </li>
+      </ul>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="search-icon">
+        <i class="fas fa-search"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================
+       Banner / Carousel
+       ======================================== -->
+  <section class="banner-container">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: bold;">
+            <span>淡江大學 - 卓越教學</span>
+          </div>
+          <div class="carousel-caption">
+            <h2>追求卓越 - 淡江大學首頁</h2>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: bold;">
+            <span>淡江大學 - 研究卓越</span>
+          </div>
+          <div class="carousel-caption">
+            <h2>專業研究 - 成就未來</h2>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: bold;">
+            <span>淡江大學 - 全球視野</span>
+          </div>
+          <div class="carousel-caption">
+            <h2>國際交流 - 開闊視野</h2>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: bold;">
+            <span>淡江大學 - 校園生活</span>
+          </div>
+          <div class="carousel-caption">
+            <h2>充實學習 - 活力校園</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- 輪播按鈕 -->
+      <button class="carousel-btn prev">❮</button>
+      <button class="carousel-btn next">❯</button>
+
+      <!-- 輪播指示點 -->
+      <div class="carousel-controls">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       招生資訊區塊
+       ======================================== -->
+  <section class="admission-section" id="admission">
+    <div class="section-title">
+      <h1>招生資訊</h1>
+      <p>加入學校・就從現在</p>
+    </div>
+    <div class="admission-cards"></div>
+  </section>
+
+  <!-- ========================================
+       學校特色宣傳區
+       ======================================== -->
+  <section class="feature-section">
+    <div class="feature-container">
+      <div class="feature-content">
+        <h2>AI + SDGs = ∞</h2>
+        <p>淡江大學致力於將人工智能技術與聯合國永續發展目標相結合，培養具備未來競爭力的優秀人才。</p>
+        <ul class="feature-list">
+          <li>前瞻教育 - 融合尖端科技</li>
+          <li>永續發展 - 關懷全球議題</li>
+          <li>創新研究 - 開創新局面</li>
+          <li>國際合作 - 連結世界</li>
+        </ul>
+      </div>
+      <div class="feature-image">
+        🌍
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="footer-section">
+          <h3>🏫 學校地址</h3>
+          <p>新北市淡水區英專路151號<br>Tel: (02) 2621-5656</p>
+        </div>
+        <div class="footer-section">
+          <h3>📧 聯絡我們</h3>
+          <p>Email: admissions@mail.tku.edu.tw<br>服務時間：週一至週五 09:00-17:00</p>
+        </div>
+        <div class="footer-section">
+          <h3>🔗 關注我們</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com" title="Facebook" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" title="Instagram" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com" title="YouTube" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.linkedin.com" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 淡江大學版權所有 | Tamkang University. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button id="scrollTopBtn" title="回到頂端">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
