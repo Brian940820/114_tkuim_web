@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>報名名單</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>比賽報名名單</h1>
+</header>
+
+<main>
+  <div class="card">
+    <h2 id="competitionTitle">載入中...</h2>
+    <p id="competitionInfo"></p>
+
+    <table border="1" width="100%" cellpadding="8">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="registrationTable">
+        <tr>
+          <td colspan="2">載入中...</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+    <a href="index.html">← 回比賽列表</a>
+  </div>
+</main>
+
+<script src="./js/api.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const competitionId = params.get("competitionId");
+
+  async function loadData() {
+    // 1️⃣ 取得比賽資料
+    const competitionRes = await fetch(
+      `http://localhost:3000/api/competitions/${competitionId}`
+    );
+    const competitionResult = await competitionRes.json();
+
+    const competition = competitionResult.data;
+
+    document.getElementById("competitionTitle").textContent =
+      competition.name;
+    document.getElementById("competitionInfo").textContent =
+      `地點：${competition.location}｜人數上限：${competition.maxPlayers}`;
+
+    // 2️⃣ 取得報名名單
+    const registrationResult =
+      await getRegistrationsByCompetition(competitionId);
+
+    const table = document.getElementById("registrationTable");
+    table.innerHTML = "";
+
+    if (registrationResult.data.length === 0) {
+      table.innerHTML = `
+        <tr>
+          <td colspan="2">尚無報名者</td>
+        </tr>
+      `;
+      return;
+    }
+
+    registrationResult.data.forEach(r => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${r.name}</td>
+        <td>${r.email}</td>
+      `;
+      table.appendChild(row);
+    });
+  }
+
+  loadData();
+</script>
+
+</body>
+</html>

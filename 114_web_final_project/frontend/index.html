@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>排球比賽報名系統</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>排球比賽報名系統</h1>
+</header>
+
+<main>
+  <div class="card">
+    <a href="create.html">新增比賽</a>
+    <h2>比賽列表</h2>
+    <ul id="competitionList">
+      <li>載入中...</li>
+    </ul>
+  </div>
+</main>
+
+<script src="./js/api.js"></script>
+<script>
+  async function loadCompetitions() {
+    const result = await getCompetitions();
+    const list = document.getElementById("competitionList");
+    list.innerHTML = "";
+
+    result.data.forEach(c => {
+      const li = document.createElement("li");
+      li.className = "competition-item";
+
+      const full = c.registeredCount >= c.maxPlayers;
+
+      const date = new Date(c.date);
+    const dateText = date.toLocaleDateString("zh-TW");
+
+    li.innerHTML = `
+    <span>
+        <strong>${c.name}</strong>（${c.location}）<br />
+        <small>比賽日期：${dateText}</small><br />
+        <small>目前報名：${c.registeredCount} / ${c.maxPlayers}</small>
+    </span>
+        <div>
+          ${
+            full
+              ? "<strong style='color:red'>已額滿</strong>"
+              : `<a href="register.html?id=${c._id}">前往報名</a>`
+          }
+          |
+          <a href="registrations.html?competitionId=${c._id}">查看名單</a>
+        </div>
+        <ul class="registration-list" style="display:none; margin-top:8px;"></ul>
+      `;
+
+      list.appendChild(li);
+    });
+  }
+
+  // 事件代理：查看名單 + 刪除
+  document.addEventListener("click", async (e) => {
+
+    // 查看名單
+    if (e.target.classList.contains("view-list")) {
+      e.preventDefault();
+
+      const competitionId = e.target.dataset.id;
+      const li = e.target.closest("li");
+      const list = li.querySelector(".registration-list");
+
+      // 收起名單
+      if (list.style.display === "block") {
+        list.style.display = "none";
+        list.innerHTML = "";
+        return;
+      }
+
+      const result = await getRegistrationsByCompetition(competitionId);
+
+      list.innerHTML = "";
+
+      if (result.data.length === 0) {
+        list.innerHTML = "<li>尚無報名者</li>";
+      }
+
+      result.data.forEach(r => {
+        const item = document.createElement("li");
+        item.innerHTML = `
+          ${r.name}（${r.email}）
+          <button class="delete-btn" data-id="${r._id}">刪除</button>
+        `;
+        list.appendChild(item);
+      });
+
+      list.style.display = "block";
+    }
+
+    // 刪除報名者
+    if (e.target.classList.contains("delete-btn")) {
+      const id = e.target.dataset.id;
+
+      if (!confirm("確定要刪除這位報名者？")) return;
+
+      const result = await deleteRegistration(id);
+
+      if (result.success) {
+        alert("已刪除報名");
+        e.target.parentElement.remove();
+      } else {
+        alert("刪除失敗：" + result.message);
+      }
+    }
+  });
+
+  loadCompetitions();
+</script>
+
+</body>
+</html>

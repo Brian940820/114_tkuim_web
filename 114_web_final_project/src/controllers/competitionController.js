@@ -1,4 +1,5 @@
 const Competition = require("../models/Competition");
+const Registration = require("../models/Registration");
 
 // CREATE
 exports.createCompetition = async (req, res) => {
@@ -18,13 +19,27 @@ exports.createCompetition = async (req, res) => {
   }
 };
 
-// READ ALL
+// READ ALL（⭐ 加上目前報名人數）
 exports.getCompetitions = async (req, res) => {
   try {
     const competitions = await Competition.find();
+
+    const result = await Promise.all(
+      competitions.map(async (c) => {
+        const count = await Registration.countDocuments({
+          competition: c._id
+        });
+
+        return {
+          ...c.toObject(),
+          registeredCount: count
+        };
+      })
+    );
+
     res.json({
       success: true,
-      data: competitions,
+      data: result,
       message: "Competitions fetched successfully"
     });
   } catch (err) {

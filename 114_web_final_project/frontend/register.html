@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>比賽報名</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>比賽報名</h1>
+</header>
+
+<main>
+  <div class="card">
+
+    <a href="index.html">← 回到比賽列表</a>
+
+    <h2>填寫報名資料</h2>
+
+    <form id="registerForm">
+      <div>
+        <label>姓名</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div>
+        <label>電話</label>
+        <input type="text" id="phone" required />
+      </div>
+
+      <button type="submit">送出報名</button>
+    </form>
+  </div>
+</main>
+
+<script src="./js/api.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const competitionId = params.get("id");
+
+  const form = document.getElementById("registerForm");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const phoneInput = document.getElementById("phone");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      competition: competitionId,
+      name: nameInput.value,
+      email: emailInput.value,
+      phone: phoneInput.value
+    };
+
+    const result = await createRegistration(data);
+
+    if (result.success) {
+      alert("報名成功！");
+      location.href = "index.html";
+    } else {
+      alert("報名失敗：" + result.message);
+    }
+  });
+</script>
+
+
+</body>
+</html>

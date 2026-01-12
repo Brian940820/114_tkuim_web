@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>新增比賽</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>新增比賽</h1>
+</header>
+
+<main>
+  <div class="card">
+    <h2>比賽資料</h2>
+
+    <form id="createForm">
+      <div>
+        <label>比賽名稱</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div>
+        <label>地點</label>
+        <input type="text" id="location" required />
+      </div>
+
+      <div>
+        <label>日期</label>
+        <input type="date" id="date" required />
+      </div>
+
+      <div>
+        <label>人數上限</label>
+        <input type="number" id="maxPlayers" required />
+      </div>
+
+      <button type="submit">建立比賽</button>
+    </form>
+  </div>
+</main>
+
+<script src="./js/api.js"></script>
+<script>
+  const form = document.getElementById("createForm");
+
+  const nameInput = document.getElementById("name");
+  const locationInput = document.getElementById("location");
+  const dateInput = document.getElementById("date");
+  const maxPlayersInput = document.getElementById("maxPlayers");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: nameInput.value,
+      location: locationInput.value,
+      date: dateInput.value,
+      maxPlayers: Number(maxPlayersInput.value)
+    };
+
+    const result = await createCompetition(data);
+
+    if (result.success) {
+      alert("比賽建立成功！");
+      location.href = "index.html";
+    } else {
+      alert("建立失敗：" + result.message);
+    }
+  });
+</script>
+
+</body>
+</html>

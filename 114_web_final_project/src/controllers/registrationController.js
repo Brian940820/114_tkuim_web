@@ -89,3 +89,24 @@ exports.deleteRegistration = async (req, res) => {
     });
   }
 };
+
+// 依比賽 ID 取得報名名單
+exports.getRegistrationsByCompetition = async (req, res) => {
+  try {
+    const registrations = await Registration.find({
+      competition: req.params.competitionId
+    });
+
+    res.json({
+      success: true,
+      data: registrations,
+      message: "Registrations fetched successfully"
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      data: null,
+      message: err.message
+    });
+  }
+};
